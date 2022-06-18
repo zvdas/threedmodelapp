@@ -407,7 +407,7 @@ Steps:
         res.json({message : "Welcome to the 3D Model Application"});
     })
 
-    app.listen(4000, ()=>{
+    app.listen(process.env.PORT || 4000, ()=>{
         console.log("The Server is listening on port 4000");
     })
 
@@ -418,13 +418,14 @@ Steps:
 6. In the app folder, create a separate configurations folder for configuration with database.js file and edit the file
     const mongoose = require("mongoose");
     
+    /*
     //local
     var url = 'mongodb://localhost:27017/threedm_db';
+    */
 
-    //shared cluster
-    var url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/?retryWrites=true&w=majority`;
-
-    mongoose.connect(url, (err) => {
+    mongoose.connect(
+        process.env.MONGODB_URI, 
+        (err) => {
         if(!err){
             console.log("Connection to MongoDB Successful");
         }else{
@@ -626,12 +627,41 @@ DEPLOYMENT ON HEROKU
 Objective: Host the application on Heroku with connection to MongoDB
 
 Steps:
-1. Create a new project in dashboard.heroku.com
+1. Install heroku CLI from the website or type the following command in terminal
+    npm i heroku
 
-2. Choose Connect to GitHub as the deployment method
+2. Login to heroku by typing the following command in terminal
+    heroku create threedmodelapp
 
-3. Search the GitHub repository and click the connect button next to the repository
+3. An app will be created in dashboard.heroku.com. Set the app as remote repository for heroku by typing the following command in terminal
+    heroku git:remote -a threedmodelapp
 
-4. Click Enable Automatic Deploys
+4. Add more options to mongoose.connect() to prevent heroku from returning a timeout error 503.
+    mongoose.connect(
+        process.env.MONGODB_URI,
+        {
+            useFindAndModify: false,
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+            replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+        }, ...
 
-5. The deployment process will start automatically once the code is pushed to GitHub
+5. Deploy the changes to the code to heroku using Git by typing the following command in terminal
+    git add .
+    git commit -am "deploy to heroku"
+    git subtree push --prefix nodejsapp heroku
+
+6. Once deployment is completed, set the MongoDB URI in heroku as it was added to gitignore to prevent security breach
+    heroku config:set MONGODB_URI="<url here>"
+
+7. Type the following to make sure an instance of the app always runs
+    heroku ps:scale web=1
+
+8. Open the site in browser by typing the following command in terminal
+    heroku open
+
+9. The website should be visible. To access the post & get API, enter the url followed by /threed/api
+
+END OF PROJECT
