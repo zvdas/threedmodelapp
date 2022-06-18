@@ -1,6 +1,7 @@
 const express = require("express");
 
-const { mongoose } = require("./nodejsapp/configurations/database");
+const { mongoose } = require("./app/configurations/mongodb");
+// nodejsapp\app\configurations\database.js );
 
 const cors = require("cors");
 
@@ -8,19 +9,19 @@ const helmet = require("helmet");
 
 const compression = require('compression');
 
-const threedmRoutes = require("./nodejsapp/routes/threed.routes");
+const threedmRoutes = require("./app/routes/threed.routes");
 
 // const path = __dirname + '/app/views/';
 
-const path = 'angularapp/dist/angularapp/';
+const path = __dirname + "../../angularapp/dist/angularapp";
 
 const app = express();
 
-app.use(helmet());
+// app.use(helmet());
 
-app.use(compression());
+// app.use(compression());
 
-// app.use(express.static(path));
+app.use(express.static(path));
 
 app.use(cors({ origin: 'http://localhost:4200' }));
 
@@ -33,9 +34,9 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use('/threed', threedmRoutes);
 
 app.get("/", (req, res) => {
-    res.json({message : "Welcome to the 3D Model Application"});
+    // res.json({message : `Welcome to the 3D Model Application`});
     // res.sendFile(process.cwd() + '/startpage.html');
-    // res.sendFile(path + "imdex.html")
+    res.sendFile(path + "index.html")
 })
 
 app.listen(4000, ()=>{
