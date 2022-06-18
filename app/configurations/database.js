@@ -14,14 +14,14 @@ var url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@$
 
 mongoose.connect(
     url, 
-    {
+    /*{
         server: { 
             socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } 
         }, 
         replset: {
             socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } 
         }
-    }, 
+    }, */
     (err) => {
         if(!err){
             console.log("Connection to MongoDB Successful");

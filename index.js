@@ -33,9 +33,9 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use('/threed', threedmRoutes);
 
 app.get("/", (req, res) => {
-    // res.json({message : "Welcome to the 3D Model Application"});
+    res.json({message : "Welcome to the 3D Model Application"});
     // res.sendFile(process.cwd() + '/startpage.html');
-    res.sendFile(path + "imdex.html")
+    // res.sendFile(path + "imdex.html")
 })
 
 app.listen(4000, ()=>{
