@@ -9,21 +9,20 @@ const mongoose = require("mongoose");
 var url = 'mongodb://localhost:27017/threedm_db';
 */
 
-/*
-//shared cluster
-var url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/?retryWrites=true&w=majority`;
-*/
-
 mongoose.connect(
-    process.env.MONGODB_URI, 
-    /*{
+    process.env.MONGODB_URI,
+    {
+        useFindAndModify: false,
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        useCreateIndex: true,
         server: { 
             socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } 
-        }, 
-        replset: {
-            socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } 
-        }
-    }, */
+        },
+        replset: { 
+            socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } 
+        },
+    },
     (err) => {
         if(!err){
             console.log("Connection to MongoDB Successful");
