@@ -12,10 +12,10 @@ var url = 'mongodb://localhost:27017/threedm_db';
 mongoose.connect(
     process.env.MONGODB_URI,
     {
-        useFindAndModify: false,
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-        useCreateIndex: true,
+        // useFindAndModify: false,
+        // useUnifiedTopology: true,
+        // useNewUrlParser: true,
+        // useCreateIndex: true,
         server: { 
             socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } 
         },
