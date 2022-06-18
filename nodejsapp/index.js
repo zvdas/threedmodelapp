@@ -12,7 +12,7 @@ const app = express();
 
 app.use(express.static(path));
 
-// app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 app.use(cors({ origin: 'https://threedmodelapp.herokuapp.com' }));
 
