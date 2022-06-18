@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { mongoose } = require("./app/configurations/database");
+const { mongoose } = require("./nodejsapp/configurations/database");
 
 const cors = require("cors");
 
@@ -8,7 +8,7 @@ const helmet = require("helmet");
 
 const compression = require('compression');
 
-const threedmRoutes = require("./app/routes/threed.routes");
+const threedmRoutes = require("./nodejsapp/routes/threed.routes");
 
 const path = __dirname + '/app/views/';
 
@@ -27,8 +27,6 @@ app.use(express.json({ limit: '50mb' }));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-
-
 
 app.use('/threed', threedmRoutes);
 
