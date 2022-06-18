@@ -14,7 +14,7 @@ app.use(express.static(path));
 
 // app.use(cors({ origin: 'http://localhost:4200' }));
 
-app.use(cors({ origin: 'https://threedmodelapp.herokuapp.com/threed/api' }));
+app.use(cors({ origin: 'https://threedmodelapp.herokuapp.com' }));
 
 // parse requests of content-type - application/json
 app.use(express.json({ limit: '50mb' }));
