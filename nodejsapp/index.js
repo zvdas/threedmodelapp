@@ -11,9 +11,9 @@ const compression = require('compression');
 
 const threedmRoutes = require("./app/routes/threed.routes");
 
-const path = __dirname + '/app/views/';
+// const path = __dirname + '/app/views/';
 
-// const path = __dirname + "../../angularapp/dist/angularapp";
+const path = __dirname + "../../angularapp/dist/angularapp";
 
 const app = express();
 
@@ -21,7 +21,7 @@ const app = express();
 
 // app.use(compression());
 
-app.use(express.static(path + "index.html"));
+app.use(express.static(path));
 
 app.use(cors({ origin: 'http://localhost:4200' }));
 
