@@ -7,9 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zvdas/threedmodelappheroku.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zvdas/threedmodelappheroku/issues"
+  },
+  "homepage": "https://github.com/zvdas/threedmodelappheroku#readme",
   "dependencies": {
     "bootstrap": "^5.1.3",
     "compression": "^1.7.4",
