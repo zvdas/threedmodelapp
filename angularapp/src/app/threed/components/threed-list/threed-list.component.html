@@ -1,0 +1,20 @@
+<div class="container col-8">
+    <div class="card bg-secondary">
+        <table class="table table-hover table-striped text-center text-white">
+            <thead>
+                <tr>
+                    <th scope="col">S.No.</th>
+                    <th scope="col">FileName</th>
+                    <th scope="col">Operation</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let model of modelfile; let i = index">
+                <tr>
+                    <th scope="row">{{ i+1 }}</th>
+                    <td>{{ model.filename }}</td>
+                    <td><button class="btn btn-primary" (click)="render(i)">Render</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

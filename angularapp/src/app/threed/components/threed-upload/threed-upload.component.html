@@ -1,0 +1,15 @@
+<div class="container col-8 my-5">
+    <div class="card bg-secondary p-3">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input [(ngModel)]="filename" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="file">File</label>
+            <input id="file" type="file" class="form-control" (change)="onFileChange($event)">
+        </div>
+        <button class="btn btn-primary my-2" (click)="submit()">Submit</button>
+        <p class="text-white text-center">{{ msg }}</p>
+    </div>
+</div>
+<app-threed-list></app-threed-list>

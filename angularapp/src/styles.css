@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+    background-image: url('https://i.pinimg.com/564x/ef/ae/76/efae76f6c3f2b985090afa1f50900af8.jpg');
+}

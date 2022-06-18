@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="card bg-secondary m-5">
+        <div class="row text-center">
+            <div class="col-6 my-2">
+                <button class="btn btn-primary" (click)="render()">Render</button>
+            </div>
+            <div class="col-6 my-2">
+                <button class="btn btn-primary" (click)="return()">Return to List</button>
+            </div>
+        </div>
+        <div class="row text-center text-white">
+            <p>Once the render button is clicked, scroll up & down with mouse to zoom in & out and move  mouse to rotate the rendered object below</p>
+        </div>
+    </div>
+    
+    <canvas #canvas id="canvas" style="height: 100%; width: 100%;"></canvas>
+</div>
