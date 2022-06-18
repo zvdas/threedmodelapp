@@ -21,7 +21,7 @@ const app = express();
 
 // app.use(compression());
 
-app.use(express.static(path));
+app.use(express.static(path + "/index.html"));
 
 // app.use(cors({ origin: 'http://localhost:4200' }));
 
@@ -41,6 +41,6 @@ app.get("/", (req, res) => {
     // res.sendFile(path + "index.html")
 })
 
-app.listen(4000, ()=>{
+app.listen(process.env.PORT || 4000, ()=>{
     console.log("The Server is listening on port 4000");
 })
