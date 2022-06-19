@@ -31,7 +31,7 @@ export class ThreedRenderComponent implements OnInit {
   private renderer!: WebGLRenderer;
   private scene: Scene = new Scene();
   private loader = new GLTFLoader();
-  private light = new AmbientLight(0xffffff, 1);
+  private light = new AmbientLight(0xffffff, 5);
 
   index!:number;
   modelfile = new Array<Threed>();

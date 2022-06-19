@@ -10,7 +10,7 @@ export class ThreedCrudService {
   
   /*
   // API URL (JSON Server)
-  baseApiUrl = "http://localhost:3000/model";
+  baseApiUrl = "http://localhost:3000/threed";
   */
 
   /*
@@ -18,8 +18,10 @@ export class ThreedCrudService {
   baseApiUrl = "http://localhost:4000/threed/api";
   */
 
+  // /*
   // API URL (Node Server - MongoDB)
   baseApiUrl = "https://threedmodelapp.herokuapp.com/threed/api";
+  // */
 
   //index for render
   index!:number;
