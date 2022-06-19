@@ -1,5 +1,7 @@
 3D Model App
 
+The Frontend & Backend both can be run locally on http://localhost:4000, or a port specified in a .env file (not included in repository). If run locally, the url reference in crud service of angular must be changed to http://localhost:4000/threed/api, then ng build, copy the dist/angularapp static files to nodejsapp/app/views.
+
 FRONTEND
 
 Objective : Upload model file to dummy API (JSON) server, retrieve filenames to list & render selected file (model).
